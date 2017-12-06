@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  mssql:
+    container_name: 'mssql_server'
+    image: microsoft/mssql-server-linux:2017-latest
+    ports:
+      - ${MSSQL_PORT}:1433
+    env_file:
+      - .env
+    restart: always
+    volumes:
+      - mssql_data:/var/opt/mssql
+  web:
+    build: ./docker/
+    ports:
+      - ${APACHE_PORT}:80
+    volumes:
+      - ./src:/var/www/html
+      - ./logs/apache/:/var/log/apache2
+    container_name: php_apache
+    links:
+      - mssql:mssql
+    restart: always
+    env_file: .env
+
+volumes:
+  mssql_data:
