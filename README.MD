@@ -1,7 +1,7 @@
 # Docker контейнер для запуска mssql
-  Образ контейнера:
+  Образы контейнеров:
    * microsoft/mssql-server-linux:2017-latest
-
+   * mssql-odbc + php.5 + apache2
 ### Требования:
    * Наличие установленного в системе Docker
 
