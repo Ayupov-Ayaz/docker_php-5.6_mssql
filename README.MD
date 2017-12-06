@@ -1,4 +1,4 @@
-# Docker контейнер для запуска mssql
+# Docker контейнер для запуска php:5.6 +  mssql
   Образы контейнеров:
    * microsoft/mssql-server-linux:2017-latest
    * mssql-odbc + php.5 + apache2
